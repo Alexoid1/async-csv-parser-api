@@ -10,6 +10,12 @@ const port = 3000
 app.set('port', process.env.PORT || port)
 
 app.use(morgan('combined'));
+app.use((_req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+  
+    next();
+  });
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 

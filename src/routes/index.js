@@ -99,12 +99,13 @@ export function getAllFiles(file){
             
  }
 
+ await getFilesList()
+ await getAllFiles(fileList)
 
-router.get("/files/data", async(req, res) => {
+
+await router.get("/files/data", (req, res) => {
    
-    await getFilesList()
-    await getAllFiles(fileList)
-
+    console.log('files antes de', files)
     res.json(files)
     
     // Toda la respuesta ha sido recibida. Imprimir el resultado.
@@ -113,6 +114,6 @@ router.get("/files/data", async(req, res) => {
 
 
 
-export {router, getFilesList, getAllFiles};
+export {router}
 
 
