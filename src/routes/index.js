@@ -14,7 +14,7 @@ const options = {
 let files =[]
 let fileList =[]
 
-function getFilesList(){
+export function getFilesList(){
     return new Promise((resolve)=>{
         const response = https.get('https://echo-serv.tbxnet.com/v1/secret/files',options, (resp) => {
             let data = '';
@@ -29,15 +29,13 @@ function getFilesList(){
 
                 resolve()
                 
-            });
-          
-
+            });      
     })
 })
 }
 
 
-function getAllFiles(file){
+export function getAllFiles(file){
     
     return new Promise((resolve, reject)=>{       
         
@@ -115,6 +113,6 @@ router.get("/files/data", async(req, res) => {
 
 
 
-export default router;
+export {router, getFilesList, getAllFiles};
 
 

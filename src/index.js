@@ -1,6 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
-import indexRoutes from "./routes/index.js"
+import {router}from "./routes/index.js"
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(express.json());
 
 //routes
 
-app.use(indexRoutes)
+app.use(router)
 
 
 
